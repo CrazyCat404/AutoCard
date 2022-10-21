@@ -78,9 +78,7 @@ public class AppConfig implements EnvironmentAware {
             // 通过系统环境变量添加单个打卡用户
             
             String username = System.getenv("AUTOCARD_USER");
-            LogUtils.printMessage(username);
             String password = System.getenv("AUTOCARD_PWD");
-            LogUtils.printMessage(password);
             if (username != null && password != null && !username.isEmpty() && !password.isEmpty()) {
                 JSONObject global_user = new JSONObject();
                 global_user.put("username", username);
@@ -89,9 +87,7 @@ public class AppConfig implements EnvironmentAware {
                 global_user.put("cron", System.getenv("AUTOCARD_CRON"));
                 global_user.put("dingtalkurl", System.getenv("AUTOCARD_DINGTALK_URL"));
                 global_user.put("dingtalksecret",  System.getenv("AUTOCARD_DINGTALK_SECRET"));
-                String primdelay = System.getenv("AUTOCARD_DELAY");
-                LogUtils.printMessage(primdelay);
-                global_user.put("delay", primdelay != null);
+                global_user.put("delay", System.getenv("AUTOCARD_DELAY") != "false");
                 global_user.put("maxtrial", System.getenv("AUTOCARD_MAX_TRIAL"));
                 global_user.put("nickname", System.getenv("AUTOCARD_NICKNAME"));
                 appConfig.getJSONArray("jobs").add(global_user);
