@@ -87,8 +87,9 @@ public class AppConfig implements EnvironmentAware {
                 global_user.put("cron", System.getenv("AUTOCARD_CRON"));
                 global_user.put("dingtalkurl", System.getenv("AUTOCARD_DINGTALK_URL"));
                 global_user.put("dingtalksecret",  System.getenv("AUTOCARD_DINGTALK_SECRET"));
-                LogUtils.printMessage(System.getenv("AUTOCARD_DELAY"));
-                global_user.put("delay", System.getenv("AUTOCARD_DELAY") != null);
+                String primdelay = System.getenv("AUTOCARD_DELAY");
+                LogUtils.printMessage(primdelay);
+                global_user.put("delay", primdelay != null);
                 global_user.put("maxtrial", System.getenv("AUTOCARD_MAX_TRIAL"));
                 global_user.put("nickname", System.getenv("AUTOCARD_NICKNAME"));
                 appConfig.getJSONArray("jobs").add(global_user);
