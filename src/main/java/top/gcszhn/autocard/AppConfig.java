@@ -78,7 +78,9 @@ public class AppConfig implements EnvironmentAware {
             // 通过系统环境变量添加单个打卡用户
             
             String username = System.getenv("AUTOCARD_USER");
+            LogUtils.printMessage(username);
             String password = System.getenv("AUTOCARD_PWD");
+            LogUtils.printMessage(password);
             if (username != null && password != null && !username.isEmpty() && !password.isEmpty()) {
                 JSONObject global_user = new JSONObject();
                 global_user.put("username", username);
