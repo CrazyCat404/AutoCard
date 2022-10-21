@@ -72,6 +72,9 @@ public class AutoCardJob implements Job {
                 LogUtils.printMessage("任务随机延时" + delaySec + "秒");
                 Thread.sleep(delaySec * 1000);
             }
+            else {
+                LogUtils.printMessage("任务无随机延时");
+            }
         } catch (Exception e) {
             throw new JobExecutionException(e);
         }
